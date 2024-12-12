@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel of Fortune</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        #wheel { width: 300px; height: 300px; border-radius: 50%; border: 5px solid #000; }
+        #spinBtn { margin-top: 20px; padding: 10px 20px; background-color: #28a745; color: #fff; border: none; cursor: pointer; }
+        #spinBtn:hover { background-color: #218838; }
+        #result { margin-top: 20px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Wheel of Fortune</h1>
+    <div id="wheel" style="background: conic-gradient(#FF0000 0% 25%, #FFFF00 25% 50%, #00FF00 50% 75%, #0000FF 75% 100%);"></div>
+    <button id="spinBtn" onclick="spinWheel()">Spin</button>
+    <div id="result"></div>
+    <br>
+    <a href="dashboard.html">Go to Dashboard</a>
+    <script>
+        function spinWheel() {
+            const payment = 100; // Example payment amount
+            const prize = (payment * 0.1).toFixed(2); // 10% prize calculation
+            const segments = ['Try Again', 'Win $' + prize, 'Lose', 'Bonus'];
+            const randomIndex = Math.floor(Math.random() * segments.length);
+            document.getElementById('result').innerText = "Result: " + segments[randomIndex];
+        }
+    </script>
+</body>
+</html>
